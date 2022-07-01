@@ -1,0 +1,14 @@
+Top 25 schools: ucsd, cps, ku, vt, oregonstate, msu.edu, strathmore.edu, umich.edu, u.northwestern.edu, nyu.edu, pace.edu, asu.edu, berkeley.edu, ucdavis.edu, husky.neu.edu, drexel.edu, baylor.edu, g.ucla.edu, utexas.edu, ucsc.edu, monmouth.edu, case.edu, uw.edu, usc.edu, tamu.edu
+
+There are 23 .edu learners located in New York
+
+330 Codecademy learners are using the mobile app
+
+Yes, different schools prefer different courses
+
+--NY student courses
+learn_cpp	learn_sql	learn_html	learn_javascript	learn_java
+
+
+--Chicago student courses
+learn_cpp	learn_sql	learn_html	learn_javascript	learn_java
