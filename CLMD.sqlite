@@ -1,0 +1,105 @@
+--Project Req 2
+
+--view users table
+SELECT *
+FROM users
+LIMIT 100;
+
+--top 5 schools are: ucsd, cps, ku, vt, & oregonstate
+SELECT email_domain, COUNT(email_domain)
+FROM users
+GROUP BY email_domain
+ORDER BY COUNT(email_domain) DESC
+LIMIT 25; 
+
+--23 .edu learners are located in New York
+SELECT COUNT(email_domain)
+FROM users
+WHERE email_domain = 'nyu.edu'; 
+
+--330 Codecademy learners are using the mobile app
+SELECT COUNT(mobile_app)
+FROM users
+WHERE mobile_app = 'mobile-user';
+
+--view progress table
+SELECT *
+FROM progress
+LIMIT 100; 
+
+--Project Req 3
+
+--test strftime() function
+SELECT sign_up_at,
+   strftime('%S', sign_up_at)
+FROM users
+GROUP BY 1
+LIMIT 20;
+
+-- sign up counts per hour
+SELECT COUNT(sign_up_at),
+  strftime('%H', sign_up_at)
+FROM users
+GROUP BY 2; 
+
+--Project Req 4
+
+--Join tables
+SELECT *
+FROM users
+LEFT JOIN progress
+ON users.user_id = progress.user_id
+LIMIT 100; 
+
+--do different schools prefer different courses? yes
+SELECT email_domain, progress.learn_cpp,
+progress.learn_sql, progress.learn_html, progress.learn_javascript, progress.learn_java
+FROM users 
+LEFT JOIN progress  
+ON users.user_id = progress.user_id 	
+WHERE progress.learn_cpp != '' 
+  OR progress.learn_sql != '' 
+  OR progress.learn_html != '' 
+  OR progress.learn_javascript != '' 
+  OR progress.learn_java != ''
+GROUP BY 1 
+ORDER BY 1 ASC;
+
+--NY student courses
+SELECT email_domain, progress.learn_cpp,
+progress.learn_sql, progress.learn_html, progress.learn_javascript, progress.learn_java
+FROM users
+LEFT JOIN progress
+  ON users.user_id = progress.user_id
+WHERE email_domain = 'nyu.edu' AND
+  (progress.learn_cpp != '' 
+  OR progress.learn_sql != '' 
+  OR progress.learn_html != '' 
+  OR progress.learn_javascript != '' 
+  OR progress.learn_java != '')
+LIMIT 100; 
+
+--Chicago student courses
+SELECT email_domain, progress.learn_cpp,
+progress.learn_sql, progress.learn_html, progress.learn_javascript, progress.learn_java
+FROM users
+LEFT JOIN progress
+  ON users.user_id = progress.user_id
+WHERE email_domain LIKE '%chicago%' AND
+  (progress.learn_cpp != '' 
+  OR progress.learn_sql != '' 
+  OR progress.learn_html != '' 
+  OR progress.learn_javascript != '' 
+  OR progress.learn_java != '')
+LIMIT 100; 
+
+
+ 
+
+
+
+
+
+
+
+
