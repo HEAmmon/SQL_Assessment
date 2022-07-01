@@ -76,8 +76,7 @@ WHERE email_domain = 'nyu.edu' AND
   OR progress.learn_sql != '' 
   OR progress.learn_html != '' 
   OR progress.learn_javascript != '' 
-  OR progress.learn_java != '')
-LIMIT 100; 
+  OR progress.learn_java != ''); 
 
 --Chicago student courses
 SELECT email_domain, progress.learn_cpp,
@@ -90,8 +89,7 @@ WHERE email_domain LIKE '%chicago%' AND
   OR progress.learn_sql != '' 
   OR progress.learn_html != '' 
   OR progress.learn_javascript != '' 
-  OR progress.learn_java != '')
-LIMIT 100; 
+  OR progress.learn_java != ''); 
 
 
  
